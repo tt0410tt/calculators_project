@@ -1,6 +1,6 @@
 # run.py
 
-from nlptutti.asr_metrics import ASRMetrics
+from nlptutti import ASRMetrics
 
 def main():
     metrics = ASRMetrics()
