@@ -56,9 +56,9 @@ class test_class:
     def test_long_cer_case(self, refs, refs_v, refs_c, preds_vrew, preds_transcribe, preds_clova):
         #긴 케이스에 대한 CER (Character Error Rate) 테스트 메소드
 
-        result_vrew = nt.get_cer(refs_v, preds_vrew)
-        result_transcribe = nt.get_cer(refs, preds_transcribe)
-        result_clova = nt.get_cer(refs_c, preds_clova)
+        result_vrew = nt.get_er(refs_v, preds_vrew)
+        result_transcribe = nt.get_er(refs, preds_transcribe)
+        result_clova = nt.get_er(refs_c, preds_clova)
 
         cer_vrew = result_vrew['cer']
         cer_transcribe = result_transcribe['cer']

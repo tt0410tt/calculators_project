@@ -3,7 +3,7 @@
 from typing import List, Tuple
 import unicodedata
 
-def levenshtein(self, u: List[Any], v: List[Any]) -> Tuple[int, Tuple[int, int, int]]:
+def levenshtein(self, u: str, v: str) -> Tuple[int, Tuple[int, int, int]]:
     """
     레벤슈타인 거리를 계산하고 대체, 삽입, 삭제 연산의 수를 반환합니다.
     """
