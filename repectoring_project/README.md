@@ -345,7 +345,7 @@ https://github.com/hyeonsangjeon/computing-Korean-STT-error-rates
 - nlptest,TestER의 string데이터
 (refs류,preds_류)에서 get_cer,_measure_cer을 거쳐서 필요한 데이터를 print하는게 주요 흐름이다
 ![alt text](readme_images/asr_metrices.png)
-![alt text](readme_images/test_cer_case_korean.png.png)
+![alt text](readme_images/test_cer_case_korean.png)
 - 모든 함수의 흐름이 method test_cer_case_korean와 비슷하여 이 부분의 흐름만 요약함
 
 ## 코드 리펙토링
