@@ -56,7 +56,7 @@ def measure_er(self, reference: str, transcription: str, level: str) -> Tuple[in
             else:
                 raise ValueError("Invalid level specified. Choose 'char' or 'word'.")
 
-            _, (s, i, d) = levenshtein(hyp_tokens, ref_tokens)
+            _, (s, i, d) = levenshtein(self,hyp_tokens, ref_tokens)
             total_s += s
             total_i += i
             total_d += d

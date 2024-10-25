@@ -53,20 +53,24 @@ class test_class:
         ]
 
     # 메소드 정의
-    def test_long_cer_case(self, refs, refs_v, refs_c, preds_vrew, preds_transcribe, preds_clova):
-        #긴 케이스에 대한 CER (Character Error Rate) 테스트 메소드
-
-        result_vrew = nt.get_er(refs_v, preds_vrew)
-        result_transcribe = nt.get_er(refs, preds_transcribe)
-        result_clova = nt.get_er(refs_c, preds_clova)
+    def test_long_cer_case(self, refs: str, refs_v: str, refs_c: str, preds_vrew: str, preds_transcribe: str, preds_clova: str):
+        """
+        긴 케이스에 대한 CER (Character Error Rate) 테스트 메소드
+        """
+        result_vrew = nt.ASRMetrics.get_er(self,reference=refs_v,transcription= preds_vrew,metric='cer')
+        result_transcribe = nt.ASRMetrics.get_er(self,reference=refs, transcription=preds_transcribe,metric='cer')
+        result_clova = nt.ASRMetrics.get_er(self,reference=refs_c, transcription=preds_clova,metric='cer')
 
         cer_vrew = result_vrew['cer']
         cer_transcribe = result_transcribe['cer']
         cer_clova = result_clova['cer']
 
-        print("CER VREW : ", cer_vrew)
-        print("CER transcribe : ", cer_transcribe)
-        print("CER clova  : ", cer_clova)
+        print("\n[긴 케이스 CER 테스트 결과]")
+        print("=" * 40)
+        print(f"VREW CER         : {cer_vrew * 100:.2f}%")
+        print(f"Transcribe CER   : {cer_transcribe * 100:.2f}%")
+        print(f"Clova CER        : {cer_clova * 100:.2f}%")
+        print("=" * 40)
 
     def test_shorts_er_case(self, refs: str, preds: str, name: str):
         """
@@ -83,7 +87,7 @@ class test_class:
         for i in range(len(refs)):
             ref = refs[i]
             pred = preds[i]
-            result = self.metrics.get_er(ref, pred, metric=name)
+            result = nt.ASRMetrics.get_er(self,ref, pred, metric=name)
             er = result[name]
             print(f"Sample {i+1}:")
             print(f"Reference    : {ref}")

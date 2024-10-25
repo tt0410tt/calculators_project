@@ -43,7 +43,7 @@ class ASRMetrics:
             level = 'word'
 
         # 오류 측정
-        hits, substitutions, deletions, insertions = utils.measure_er(refs, trans, level)
+        hits, substitutions, deletions, insertions = utils.measure_er(self,refs, trans, level)
 
         incorrect = substitutions + deletions + insertions
         total = substitutions + deletions + hits + insertions
